@@ -65,8 +65,11 @@ resource "aws_instance" "SwarmManager" {
     ami           = var.ami-uk
     instance_type = "t2.micro"
 
+    key_name    = "DevKey"
+    public_key  = var.KeyPair.DevKey
+
     lifecycle {
-        prevent_destroy = true
+        prevent_destroy = false
     }
 
     timeouts {
@@ -86,7 +89,7 @@ resource "aws_instance" "SwarmWorker" {
     instance_type = "t2.micro"
 
     lifecycle {
-        prevent_destroy = true
+        prevent_destroy = false
     }
 
     timeouts {
