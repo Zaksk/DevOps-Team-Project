@@ -1,0 +1,7 @@
+---
+# tasks file for java
+- name: install java packages
+  apt:
+    pkg:
+    - java-latest-openjdk
+    update_cache: true

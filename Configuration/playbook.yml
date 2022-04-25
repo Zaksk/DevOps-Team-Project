@@ -1,0 +1,48 @@
+- hosts: Dev
+  become: true
+  roles:
+  - python
+  - docker
+  - docker-compose
+  vars:
+    docker_user: ubuntu
+
+- hosts: Jenkins
+  become: true
+  roles:
+  - python
+  - docker
+  - docker-compose
+  - jenkins
+  vars:
+    docker_user: jenkins
+
+- hosts: SwarmManager
+  become: true
+  roles:
+  - docker
+  - swarm-manager
+  tasks:
+  - name: add ansible user to docker group
+    user:
+      name: ubuntu
+      groups: docker
+      append: yes
+  vars:
+    docker_user: jenkins
+
+- hosts: SwarmWorker
+  become: true
+  roles:
+  - docker
+  - swarm-worker
+  vars:
+    docker_user: ubuntu
+
+- hosts: K8
+  become: true
+  roles:
+  - docker
+  - docker-compose
+  vars:
+    docker_user: ubuntu
