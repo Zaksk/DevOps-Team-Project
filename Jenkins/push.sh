@@ -1,1 +1,1 @@
-sudo docker push zaksk99/frontend:latest
+docker push zaksk99/frontend:latest
