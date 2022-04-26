@@ -7,6 +7,8 @@ Repository for the DevOps (AWS) Team Project
     * [Risk Assessment](#Risk-Assessment)
     * [ER Model](#ER-Model)
     * [CI/CD Pipeline](#CICD-Pipeline)
+    * [Project Tracking](#Project-Tracking)
+    * [Version Control](#version-control)
 
 ## Project Brief
 To plan, designs and implement a solution for automating the development workflows and deployments of the Pet Clinic application. The full technology stack is as follows:
@@ -38,4 +40,5 @@ Throughout the course of the project/sprint, version control was used. More spec
 The type of Version Control used for this project was Git, incorporating GitHub as a place to store the repository. The Feature-Branch Model was adopted in order to keep track of the work being completed and ensure that no bugs or unnecessary code was pushed to the main/live environment. Each new feature that was being added to the application was worked on using a seperate branch from the development branch. Once all was completed on the feature branch, it could then be merged (pull requested) back to the main branch to check for any issues with the other features that are already on the dev branch. Only once all was working and in a "finished" state, would the dev branch be merged back to main/live branch, where it could be deployed to the end user. 
 
 The screenshot below shows an example of how the Feature-Branch Model looks like in terms of the network diagram:
-![]()
+![Network Diagram Image](/Readme_Images/network_diagram.png)
+
