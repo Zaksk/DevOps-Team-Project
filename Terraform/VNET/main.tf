@@ -1,28 +1,41 @@
-resource "aws_instance" "Jenkins" {
-    name                = "${var.project_name}-vnet"
-    address_space       = ["      "]
-    location            = var.location
-    resource_group_name = var.group_name
+resource "aws_vpc" "first-vpc" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "prod-subnet"
+  }
+}  
+
+resource "aws_subnet" "subnet_1" {
+  vpc_id     = aws_vpc.first-vpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "prod-subnet"
+  }
 }
 
+resource "aws_internet_gateway" "igw1" {
+  vpc_id = aws_vpc.first-vpc.id
 
-resource "aws_vpc" "main" {
-    name                 = "internal"
-    resource_group_name  = var.group_name
-    virtual_network_name = aws_virtual_network.main.name
-    address_prefixes     = ["     "]
+  tags = {
+    Name = "igw1"
+  }
 }
 
-resource "aws_network_interface" "main" {
-    count               = var.vm_count
+resource "aws_route_table" "rt1" {
+  vpc_id = aws_vpc.first-vpc.id
 
-    name                = "${var.project_name}-nic-${count.index}"
-    location            = var.location
-    resource_group_name = var.group_name
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw1.id
+  }
+
+  tags = {
+    Name = "rt1"
+  }
 }
-    ip_configuration {
-        name                          = "internal-${count.index}"
-        subnet_id                     = #check aws for id #
-        private_ip_address_allocation = # check aws for these details #
-    }
-}    
+
+resource "aws_route_table_association" "rtsa1" {
+  subnet_id      = aws_subnet.subnet_1.id
+  route_table_id = aws_route_table.rt1.id
+}
