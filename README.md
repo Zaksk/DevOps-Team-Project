@@ -27,3 +27,15 @@ The image below shows the ER Model for the Pet Clinic. This was supplied via the
 
 ### CI/CD Pipeline
 In order to deploy this Pet Clinic application, a full CI/CD Pipeline was utilised to build, test, deploy, update and maintain the application.
+
+### Project Tracking
+In order to keep track of the sprint and the backlog of tasks that needed to be completed, a Kanban board was created (using Jira) to keep all sprint and project backlog items in one place. A screenshot below shows the Jira board at the beggining of the sprint with most of the required tasks present, however this was fully completed with all tasks and story points estimates before the commencement of the project/sprint. 
+![Jira Board Start](/Readme_Images/jira_board_start.png)
+
+### Version Control
+Throughout the course of the project/sprint, version control was used. More specifically, the Feature-Branch model of version control was adopted. The reason for using Version Control is to keep track of all work that has been created and should any issues arise, the code and objects that have been created will not be lost. 
+
+The type of Version Control used for this project was Git, incorporating GitHub as a place to store the repository. The Feature-Branch Model was adopted in order to keep track of the work being completed and ensure that no bugs or unnecessary code was pushed to the main/live environment. Each new feature that was being added to the application was worked on using a seperate branch from the development branch. Once all was completed on the feature branch, it could then be merged (pull requested) back to the main branch to check for any issues with the other features that are already on the dev branch. Only once all was working and in a "finished" state, would the dev branch be merged back to main/live branch, where it could be deployed to the end user. 
+
+The screenshot below shows an example of how the Feature-Branch Model looks like in terms of the network diagram:
+![]()
