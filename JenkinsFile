@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Run unit tests') {
+            steps {
+                sh "bash Jenkins/test.sh"
+            }
+        }
+        stage('Build and push') {
+            environment {
+                DOCKER_CREDS = credentials('DOCKER_CREDS')
+            }
+            steps {
+                sh "bash Jenkins/build.sh"
+                sh "bash Jenkins/push.sh"
+
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh "bash Jenkins/terraform.sh"
+                //sh "echo '    driver: overlay' >> docker-compose.yaml" 
+                //sh "scp ./docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml"
+                //sh "scp ./nginx.conf jenkins@swarm-manager:/home/jenkins/nginx.conf"
+                //sh "ssh jenkins@swarm-manager < deploy.sh"
+                // sh "ssh jenkins@swarm-manager 'docker stack deploy --compose-file docker-compose.yml prac-proj-stack'"
+                
+            }
+        }
+        stage('Cluster'){
+            steps{
+                sh "bash Jenkins/deploy.sh"
+            }
+        }
+    }
+}

@@ -1,0 +1,1 @@
+sudo docker push zaksk99/frontend:latest

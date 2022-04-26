@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+ nginx:
+  container_name: nginx
+  image: nginx:latest
+  ports:
+   - target: 80
+     published: 80
+  volumes:
+   - type: bind
+     source: /nginx/nginx.conf
+     target: /etc/nginx/nginx.conf
+ frontend:
+  container_name: frontend
+  image: zaksk99/frontend:latest
+  build: ./frontend
+ backend:
+  container_name: backend
+  image: zaksk99/backend:latest
+  build: ./backend
+
