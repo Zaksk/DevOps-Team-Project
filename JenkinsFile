@@ -6,22 +6,22 @@ pipeline {
     stages {
         stage('Run unit tests') {
             steps {
-                sh "bash Jenkins/test.sh"
+                sh "bash jenkins/test.sh"
             }
         }
         stage('Build') {
             steps {
-                sh "bash Jenkins/build.sh"
+                sh "bash jenkins/build.sh"
             }
         }
         stage('Push') {
             steps {
-                sh "bash Jenkins/push.sh"
+                sh "bash jenkins/push.sh"
             }
         }
         stage('Deploy') {
             steps {
-                sh "bash Jenkins/terraform.sh"
+                sh "bash jenkins/terraform.sh"
                 //sh "echo '    driver: overlay' >> docker-compose.yaml" 
                 //sh "scp ./docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml"
                 //sh "scp ./nginx.conf jenkins@swarm-manager:/home/jenkins/nginx.conf"
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Cluster'){
             steps{
-                sh "bash Jenkins/deploy.sh"
+                sh "bash jenkins/deploy.sh"
             }
         }
     }
