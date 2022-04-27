@@ -4,7 +4,7 @@ variable "ami-uk" {
 }
 
 variable "type" {
-  default = "t2.small"
+  default = "t2.medium"
 }
 
 variable "zone" {
