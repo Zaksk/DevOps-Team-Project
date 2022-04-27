@@ -1,19 +1,22 @@
 pipeline {
     agent any
+    environment {
+                DOCKER_CREDS = credentials('docker-creds')
+    }
     stages {
         stage('Run unit tests') {
             steps {
                 sh "bash Jenkins/test.sh"
             }
         }
-        stage('Build and push') {
-            environment {
-                DOCKER_CREDS = credentials('docker-creds')
-            }
+        stage('Build') {
             steps {
                 sh "bash Jenkins/build.sh"
+            }
+        }
+        stage('Push') {
+            steps {
                 sh "bash Jenkins/push.sh"
-
             }
         }
         stage('Deploy') {
