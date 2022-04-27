@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build and push') {
             environment {
-                DOCKER_CREDS = credentials('DOCKER_CREDS')
+                DOCKER_CREDS = credentials('docker-creds')
             }
             steps {
                 sh "bash Jenkins/build.sh"

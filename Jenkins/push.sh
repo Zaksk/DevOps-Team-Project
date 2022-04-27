@@ -1,1 +1,1 @@
-docker push zaksk99/frontend:latest
+docker-compose push 
