@@ -35,7 +35,10 @@ pipeline {
         // }
         stage('Cluster'){
             steps{
-                sh "bash jenkins/deploy.sh"
+                // sh "bash jenkins/deploy.sh"
+                sh "kubectl apply -f K8/frontend.yaml"
+                sh "kubectl apply -f K8/backend.yaml"
+
             }
         }
     }
