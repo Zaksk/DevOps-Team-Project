@@ -15,5 +15,6 @@ npm i
 npm run test-headless
 cd ..
 cd backend
-sudo chmod +x /mvnw
-sudo ./mvnw clean test
+pwd
+ls -a
+./mvnw clean test
