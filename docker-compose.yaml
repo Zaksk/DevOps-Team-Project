@@ -15,7 +15,7 @@ services:
   depends_on:
    - 'front-end'
  front-end:
-  image: zaksk99/spring-petclinic-angular:latest
+  image: qaedd/spring-petclinic-angular:latest
   build: ./SPRING-PETCLINIC-ANGULAR
   ports:
   - published: 8080
