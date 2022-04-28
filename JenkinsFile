@@ -11,14 +11,12 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
+            steps {               
                 sh "bash jenkins/build.sh"
             }
         }
         stage('Push') {
             steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
                 sh "bash jenkins/push.sh"
             }
         }
