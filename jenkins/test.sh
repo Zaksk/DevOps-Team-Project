@@ -17,5 +17,5 @@ cd ..
 cd backend
 pwd
 ls -a
-sudo chown -R jenkins /mvnw
+sudo chown -R jenkins mvnw
 ./mvnw clean test
