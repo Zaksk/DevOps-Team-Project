@@ -36,6 +36,7 @@ pipeline {
         stage('Cluster'){
             steps{
                 // sh "bash jenkins/deploy.sh"
+                sh "aws eks update-kubeconfig --name emoluster"
                 sh "sudo kubectl apply -f K8/frontend.yaml"
                 sh "sudo kubectl apply -f K8/backend.yaml"
 
