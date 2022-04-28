@@ -11,7 +11,7 @@ sudo nvm install v14.17.1
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
-sudo npm i
-sudo npm run test-headless
+npm i
+npm run test-headless
 
 sudo ./mvnw clean test
