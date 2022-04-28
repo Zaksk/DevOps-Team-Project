@@ -19,17 +19,17 @@ pipeline {
                 sh "bash jenkins/push.sh"
             }
         }
-        stage('Deploy') {
-            steps {
-                sh "bash jenkins/terraform.sh"
-                //sh "echo '    driver: overlay' >> docker-compose.yaml" 
-                //sh "scp ./docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml"
-                //sh "scp ./nginx.conf jenkins@swarm-manager:/home/jenkins/nginx.conf"
-                //sh "ssh jenkins@swarm-manager < deploy.sh"
-                // sh "ssh jenkins@swarm-manager 'docker stack deploy --compose-file docker-compose.yml prac-proj-stack'"
+        // stage('Deploy') {
+        //     steps {
+        //         sh "bash jenkins/terraform.sh"
+        //         //sh "echo '    driver: overlay' >> docker-compose.yaml" 
+        //         //sh "scp ./docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml"
+        //         //sh "scp ./nginx.conf jenkins@swarm-manager:/home/jenkins/nginx.conf"
+        //         //sh "ssh jenkins@swarm-manager < deploy.sh"
+        //         // sh "ssh jenkins@swarm-manager 'docker stack deploy --compose-file docker-compose.yml prac-proj-stack'"
                 
-            }
-        }
+        //     }
+        // }
         stage('Cluster'){
             steps{
                 sh "bash jenkins/deploy.sh"
