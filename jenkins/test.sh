@@ -16,6 +16,6 @@ npm run test-headless
 cd ..
 cd backend
 pwd
-ls -a
+ls -al
 sudo chown -R jenkins mvnw
 ./mvnw clean test
