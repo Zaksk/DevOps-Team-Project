@@ -12,6 +12,7 @@ Repository for the DevOps (AWS) Team Project
 * [The Application](#The-Application)
     * [Database](#Database)
     * [Technologies](#Technologies)
+    * [Testing](#Testing)
 * [Known Issues and Future Improvements](#Known-Issues-and-Future-Improvements)
 
 ## Project Brief
@@ -67,6 +68,8 @@ A GitHub webhook was also created to link the project to Jenkins, which was used
 All Virtual Machines were created on AWS as EC2 instances in a range of t2.micro, t2.small, t2.medium and t3.small EC2 instance types, dependant on what the instance needed to run, etc...
 
 Docker was also used to create new docker images for the frontend, backend and NGINX. 
+
+### Testing
 
 
 ## Known Issues and Future Improvements
