@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update && sudo apt install openjdk-11-jdk -y
 sudo apt install curl -y
-sudo install node -y
+sudo install node
 
 sudo curl -sL https://deb.nodesource.com/setip_16.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
