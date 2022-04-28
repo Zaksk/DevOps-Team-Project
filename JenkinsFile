@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
                 DOCKER_CREDS = credentials('docker-creds')
+                aws_creds = credentials('aws-creds')
     }
     stages {
         // stage('Run unit tests') {
@@ -34,6 +35,7 @@ pipeline {
         // }
         stage('Cluster'){
             steps{
+                withAWS(credentials: 'aws-creds', region: 'eu-west-2')
                 sh "bash jenkins/deploy.sh"
             }
         }
