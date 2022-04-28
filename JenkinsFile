@@ -5,13 +5,13 @@ pipeline {
                 aws_creds = credentials('aws-creds')
     }
     stages {
-        // stage('Run unit tests') {
-        //     steps {
-        //         // sh "chmod +x -R ${env.WORKSPACE}"
-        //         // sh "bash jenkins/test.sh"
+        stage('Run unit tests') {
+            steps {
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh "bash jenkins/test.sh"
                 
-        //     }
-        // }
+            }
+        }
         stage('Build') {
             steps {               
                 sh "bash jenkins/build.sh"
