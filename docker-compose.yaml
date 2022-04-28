@@ -8,14 +8,30 @@ services:
      published: 80
   volumes:
    - type: bind
-     source: /nginx/nginx.conf
+     source: ./nginx.conf
      target: /etc/nginx/nginx.conf
- frontend:
-  container_name: frontend
-  image: zaksk99/frontend:latest
-  build: ./frontend
- backend:
-  container_name: backend
-  image: zaksk99/backend:latest
-  build: ./backend
+  networks:
+    - 'Petclinicnet'
+  depends_on:
+   - 'front-end'
+ front-end:
+  image: zaksk99/spring-petclinic-angular:latest
+  build: ./SPRING-PETCLINIC-ANGULAR
+  ports:
+  - published: 8080
+    target: 8080
+  networks:
+    - 'Petclinicnet'
+  depends_on:
+    - 'back-end'
+ back-end:
+  image: springcommunity/spring-petclinic-rest
+  ports:
+  - published: 9966
+    target: 9966
+  networks:
+    - 'Petclinicnet'
+networks:
+  Petclinicnet:
+
 

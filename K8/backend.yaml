@@ -3,36 +3,23 @@ kind: Service
 metadata:
   name: backend
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: backend
   ports:
   - protocol: TCP
-    port: 5001
-    targetPort: 5001
+    port: 9966
+    targetPort: 9966
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: backend
   labels:
     app: backend
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: backend
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-  template:
-    metadata:
-      labels:
-        app: backend
-    spec:
-      containers:
-      - name: backend
-        image: zaksk99/backend
-        ports:
-        - containerPort: 5001
+  containers:
+  - name: backend
+    image: springcommunity/spring-petclinic-rest
+    ports:
+    - containerPort: 9966
