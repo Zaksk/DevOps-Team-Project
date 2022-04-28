@@ -36,7 +36,10 @@ pipeline {
         stage('Cluster'){
             steps{
                 withAWS(credentials: 'aws-creds', region: 'eu-west-2')
-                sh "bash jenkins/deploy.sh"
+                sh aws eks --region eu-west-2 update-kubeconfig --name emoluster
+                sh kubectl apply -f K8/backend.yaml
+                sh kubectl apply -f K8/frontend.yaml
+                // sh "bash jenkins/deploy.sh"
             }
         }
     }
