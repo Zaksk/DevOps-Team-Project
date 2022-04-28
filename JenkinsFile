@@ -7,7 +7,7 @@ pipeline {
         stage('Run unit tests') {
             steps {
                 // sh "chmod +x -R ${env.WORKSPACE}"
-                sh "bash jenkins/test.sh"
+                // sh "bash jenkins/test.sh"
             }
         }
         stage('Build') {
