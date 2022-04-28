@@ -16,7 +16,7 @@ services:
    - 'front-end'
  front-end:
   image: qaedd/spring-petclinic-angular:latest
-  build: ./SPRING-PETCLINIC-ANGULAR
+  build: ./frontend
   ports:
   - published: 8080
     target: 8080
