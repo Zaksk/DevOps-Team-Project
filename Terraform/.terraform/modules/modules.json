@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"VNET","Source":".//VNET","Dir":"VNET"},{"Key":"","Source":"","Dir":"."},{"Key":"myEC2","Source":"./EC2","Dir":""},{"Key":"myVPC","Source":"./VPC","Dir":""},{"Key":"VM","Source":".//VM","Dir":"VM"}]}
