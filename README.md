@@ -9,6 +9,7 @@ Repository for the DevOps (AWS) Team Project
     * [CI/CD Pipeline](#CICD-Pipeline)
     * [Project Tracking](#Project-Tracking)
     * [Version Control](#version-control)
+
 * [The Application](#The-Application)
     * [Database](#Database)
     * [Technologies](#Technologies)
@@ -26,6 +27,19 @@ To plan, designs and implement a solution for automating the development workflo
 ## Project Planning
 ### Risk Assessment
 Prior to the commencement of the project, a Risk Assessment Table was produced in order to keep track and understand any of the possible risks to the project. Having this created prior to the commencement of the project allows for preemptive measures to be taken and can be updated during the course of the project should any new risks or issues arise or become apparant. The Initial Risk Assessment Table can be seen below:
+
+![Initial Risk Assessment Table](/Readme_Images/risk_assessment_table.png)
+
+### ER Model
+The image below shows the ER Model for the Pet Clinic. This was supplied via the following link within the Backend of the applications [GitHub Repository](https://github.com/spring-petclinic/spring-petclinic-rest). 
+![ER Model](/Readme_Images/petclinic-ermodel.png)
+
+### CI/CD Pipeline
+In order to deploy this Pet Clinic application, a full CI/CD Pipeline was utilised to build, test, deploy, update and maintain the application.
+
+### Project Tracking
+In order to keep track of the sprint and the backlog of tasks that needed to be completed, a Kanban board was created (using Jira) to keep all sprint and project backlog items in one place. A screenshot below shows the Jira board at the beggining of the sprint with most of the required tasks present, however this was fully completed with all tasks and story points estimates before the commencement of the project/sprint. 
+![Jira Board Start](/Readme_Images/jira_board_start.png)
 ![Initial Risk Assessment Table](/Readme_images/risk_assessment_table.png)
 
 ### ER Model
@@ -46,6 +60,8 @@ Throughout the course of the project/sprint, version control was used. More spec
 The type of Version Control used for this project was Git, incorporating GitHub as a place to store the repository. The Feature-Branch Model was adopted in order to keep track of the work being completed and ensure that no bugs or unnecessary code was pushed to the main/live environment. Each new feature that was being added to the application was worked on using a seperate branch from the development branch. Once all was completed on the feature branch, it could then be merged (pull requested) back to the main branch to check for any issues with the other features that are already on the dev branch. Only once all was working and in a "finished" state, would the dev branch be merged back to main/live branch, where it could be deployed to the end user. 
 
 The screenshot below shows an example of how the Feature-Branch Model looks like in terms of the network diagram:
+
+![Network Diagram Image](/Readme_Images/network_diagram.png)
 ![Network Diagram Image](/Readme_images/network_diagram.png)
 
 ## The Application
@@ -74,4 +90,5 @@ Docker was also used to create new docker images for the frontend, backend and N
 
 ## Known Issues and Future Improvements
 At this moment, the database being used is the local database that is created and destroyed whenever the application is deployed. With a bit more time and a better look at the MySQL and RDS aspect of the project, this could be added to application in a future update of the application or a future sprint. 
+
 
